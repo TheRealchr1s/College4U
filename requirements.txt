@@ -1,0 +1,6 @@
+flask
+gunicorn
+thefuzz[speedup]
+pandas
+openpyxl
+requests
