@@ -4,7 +4,7 @@ import os
 import requests
 
 if not os.path.isfile("cllg/data.csv"):
-    r = requests.get("https://download1507.mediafire.com/344p8kr83jwg/vtg6aosnnscgoqu/Most-Recent-Cohorts-All-Data-Elements.csv")
+    r = requests.get("https://github.com/TheRealchr1s/College4U/blob/master/cllg/data.csv?raw=true")
 with open("cllg/data.csv", 'wb') as f:
     f.write(r.content)
 
