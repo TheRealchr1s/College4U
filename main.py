@@ -5,8 +5,8 @@ import requests
 
 if not os.path.isfile("cllg/data.csv"):
     r = requests.get("https://github.com/TheRealchr1s/College4U/blob/master/cllg/data.csv?raw=true")
-with open("cllg/data.csv", 'wb') as f:
-    f.write(r.content)
+    with open("cllg/data.csv", 'wb') as f:
+        f.write(r.content)
 
 
 from cllg.cllg import get_sheet
