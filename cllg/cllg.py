@@ -2,7 +2,7 @@ import pandas
 from thefuzz import fuzz, process
 
 SELECT_COLUMNS = ["UNITID", "CITY", "CONTROL", "CCBASIC", "CCUGPROF", "ADM_RATE_ALL", "SATVR75", "SATMT75", "SATMTMID", "SAT_AVG_ALL", "UGDS", "UGDS_WHITE", "UGDS_ASIAN", "TUITIONFEE_IN", "TUITIONFEE_OUT"]
-college_db = pandas.read_csv("cllg/data.csv", low_memory=True)
+college_db = pandas.read_csv("cllg/data.csv", low_memory=False)
 db_instnm = college_db.set_index("INSTNM")
 columns = college_db.iloc[:, 3] # select all columns in row 0
 
