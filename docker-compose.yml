@@ -3,8 +3,8 @@ version: '3.8'
 services:
   web:
     build: .
-    command: gunicorn main:app --timeout 1000 --bind 0.0.0.0:8000 --access-logfile '-'
+    command: gunicorn main:app --timeout 1000 --bind 0.0.0.0:7777 --access-logfile '-'
     ports:
-      - 8000:8000
+      - 7777:7777
     volumes:
       - ./cllg/data.csv:/usr/src/app/cllg/data.csv

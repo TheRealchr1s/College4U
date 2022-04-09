@@ -10,7 +10,7 @@ def get_sheet(colleges):
     all_names = list()
     first_college_name = colleges.pop(0)
     first_college_name = process.extractOne(first_college_name, list(columns))[0] # try fuzzy match
-    print(f"Matched input to '{first_college_name}'")
+    # print(f"Matched input to '{first_college_name}'")
     all_names.append(first_college_name)
     main_db = db_instnm.loc[first_college_name, :]
     main_db = main_db.loc[SELECT_COLUMNS]
