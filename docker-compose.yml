@@ -15,7 +15,7 @@ services:
     networks:
       - c4unetwork
     restart:
-      - "unless-stopped"
+      "unless-stopped"
   
   nginxsrv:
     image: nginx
@@ -28,4 +28,4 @@ services:
     networks:
       - c4unetwork
     restart:
-      - "unless-stopped"
+      "unless-stopped"
