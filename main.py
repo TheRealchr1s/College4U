@@ -2,17 +2,17 @@ from flask import Flask
 import flask
 import os
 import requests
-
-if not os.path.isfile("cllg/data.csv"):
-    r = requests.get("https://github.com/TheRealchr1s/College4U/blob/master/cllg/data.csv?raw=true")
-    with open("cllg/data.csv", 'wb') as f:
-        f.write(r.content)
-
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 from cllg.cllg import get_sheet
 
 app = Flask(__name__)
-
+limiter = Limiter(
+    app,
+    key_func=get_remote_address,
+    default_limits=["200 per day", "50 per hour"]
+)
 
 @app.route("/")
 def index():

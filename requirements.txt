@@ -4,3 +4,4 @@ thefuzz[speedup]
 pandas
 openpyxl
 requests
+flask-limiter
