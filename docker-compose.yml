@@ -1,10 +1,31 @@
-version: '3.8'
+version: '3.9'
+
+networks:
+  c4unetwork:
+      external: false
 
 services:
   web:
     build: .
-    command: gunicorn main:app --timeout 1000 --bind 0.0.0.0:7777 --access-logfile '-'
-    ports:
-      - 7777:7777
+    command: gunicorn main:app --timeout 1000 --bind 0.0.0.0:6969
     volumes:
-      - ./cllg/data.csv:/usr/src/app/cllg/data.csv
+      - ./cllg/data.csv:/usr/src/app/cllg/
+    depends_on:
+      - nginxsrv
+    networks:
+      - c4unetwork
+    restart:
+      - unless-stopped
+  
+  nginxsrv:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./crrapi.cf.key:/etc/nginx/ssl/crrapi.cf.key:ro
+      - ./crrapi.cf.crt:/etc/nginx/ssl/crrapi.cf.crt:ro
+    ports:
+      - "8000:443"
+    networks:
+      - c4unetwork
+    restart:
+      - unless-stopped
