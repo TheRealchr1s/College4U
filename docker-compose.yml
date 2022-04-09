@@ -24,7 +24,7 @@ services:
       - ./crrapi.cf.key:/etc/nginx/ssl/crrapi.cf.key:ro
       - ./crrapi.cf.crt:/etc/nginx/ssl/crrapi.cf.crt:ro
     ports:
-      - "8000:443"
+      - "7777:443"
     networks:
       - c4unetwork
     restart:
