@@ -9,7 +9,7 @@ services:
     build: .
     command: gunicorn main:app --timeout 1000 --bind 0.0.0.0:6969
     volumes:
-      - ./cllg/data.csv:/usr/src/app/cllg/
+      - ./cllg/data.csv:/usr/src/app/cllg/data.csv:ro
     depends_on:
       - nginxsrv
     networks:
@@ -20,7 +20,7 @@ services:
   nginxsrv:
     image: nginx
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx.conf:/etc/nginx/sites-available/crrapi.cf.conf:ro
       - ./crrapi.cf.key:/etc/nginx/ssl/crrapi.cf.key:ro
       - ./crrapi.cf.crt:/etc/nginx/ssl/crrapi.cf.crt:ro
     ports:
