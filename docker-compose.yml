@@ -2,7 +2,7 @@ version: '3.9'
 
 networks:
   c4unetwork:
-      external: false
+      driver: bridge
 
 services:
   web:
